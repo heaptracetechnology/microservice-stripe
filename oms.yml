@@ -1,14 +1,14 @@
 oms: 1
 lifecycle:
   startup:
-    command: ["stripe"]
+    command: ['stripe']
 info:
   version: 1.0.0
-  title: Stripe 
+  title: Stripe
   description: This is a Stripe service
   license:
     name: MIT
-    url: https://opensource.org/licenses/MIT 
+    url: https://opensource.org/licenses/MIT
 actions:
   create_charge:
     help: Create a New Charge
@@ -23,12 +23,12 @@ actions:
         in: requestBody
         required: true
         help: The amount of charge to be created
-      currency: 
+      currency:
         type: string
         in: requestBody
         required: true
         help: The type of currency
-      description: 
+      description:
         type: string
         in: requestBody
         required: false
@@ -37,7 +37,9 @@ actions:
         type: int
         in: requestBody
         required: false
-        help: A fee in cents that will be applied to the charge and transferred to the application owner’s Stripe account
+        help:
+          A fee in cents that will be applied to the charge and transferred to
+          the application owner’s Stripe account
       capture:
         type: boolean
         in: requestBody
@@ -47,7 +49,8 @@ actions:
         type: string
         in: requestBody
         required: false
-        help: The ID of an existing customer that will be charged in this request.
+        help:
+          The ID of an existing customer that will be charged in this request.
       metadata:
         type: object
         in: requestBody
@@ -57,7 +60,9 @@ actions:
         type: string
         in: requestBody
         required: false
-        help: The Stripe account ID for which these funds are intended. Automatically set if you use the destination parameter
+        help:
+          The Stripe account ID for which these funds are intended.
+          Automatically set if you use the destination parameter
       receiptemail:
         type: string
         in: requestBody
@@ -67,7 +72,9 @@ actions:
         type: object
         in: requestBody
         required: false
-        help: Shipping information for the charge. Helps prevent fraud on charges for physical goods.
+        help:
+          Shipping information for the charge. Helps prevent fraud on charges
+          for physical goods.
       source:
         type: object
         in: requestBody
@@ -77,13 +84,15 @@ actions:
         type: string
         in: requestBody
         required: false
-        help: An optional dictionary including the account to automatically transfer to as part of a destination charge (required destination feild)
+        help:
+          An optional dictionary including the account to automatically transfer
+          to as part of a destination charge (required destination feild)
       transfergroup:
         type: string
         in: requestBody
         required: false
         help: A string that identifies this transaction as part of a group
-    output:   
+    output:
       type: object
       contentType: application/json
       properties:
@@ -94,7 +103,9 @@ actions:
           help: The refunded amount
           type: int
         balancetransaction:
-          help: The object of balance transaction with details of amount, created, currency, description, id, recipient, source etc
+          help:
+            The object of balance transaction with details of amount, created,
+            currency, description, id, recipient, source etc
           type: object
         frauddetails:
           help: The object of fraud details with user and stripe report
@@ -104,7 +115,7 @@ actions:
           type: string
         receipturl:
           help: The url for receipt from
-          type: string 
+          type: string
         source:
           help: The source details
           type: object
@@ -130,7 +141,9 @@ actions:
         type: int
         in: requestBody
         required: false
-        help: A fee in cents that will be applied to the charge and transferred to the application owner’s Stripe account
+        help:
+          A fee in cents that will be applied to the charge and transferred to
+          the application owner’s Stripe account
       receiptemail:
         type: string
         in: requestBody
@@ -140,13 +153,15 @@ actions:
         type: string
         in: requestBody
         required: false
-        help: An optional dictionary including the account to automatically transfer to as part of a destination charge (required destination feild)
+        help:
+          An optional dictionary including the account to automatically transfer
+          to as part of a destination charge (required destination feild)
       transfergroup:
         type: string
         in: requestBody
         required: false
         help: A string that identifies this transaction as part of a group
-    output:   
+    output:
       type: object
       contentType: application/json
       properties:
@@ -157,7 +172,9 @@ actions:
           help: The refunded amount
           type: int
         balance_transaction:
-          help: The object of balance transaction with details of amount, created, currency, description, id, recipient, source etc
+          help:
+            The object of balance transaction with details of amount, created,
+            currency, description, id, recipient, source etc
           type: object
         fraud_details:
           help: The object of fraud details with user and stripe report
@@ -167,7 +184,7 @@ actions:
           type: string
         receipt_url:
           help: The url for receipt from
-          type: string 
+          type: string
         source:
           help: The source details
           type: object
@@ -178,7 +195,7 @@ actions:
       method: get
       path: /getbalance
       contentType: application/json
-    output: 
+    output:
       type: object
       contentType: application/json
       properties:
@@ -204,7 +221,7 @@ actions:
         in: requestBody
         required: true
         help: The amount of payment to be created
-      currency: 
+      currency:
         type: string
         in: requestBody
         required: true
@@ -214,7 +231,7 @@ actions:
         in: requestBody
         required: false
         help: The type of payment method
-      description: 
+      description:
         type: string
         in: requestBody
         required: false
@@ -223,7 +240,9 @@ actions:
         type: int
         in: requestBody
         required: false
-        help: A fee in cents that will be applied to the paymentintent and transferred to the application owner’s Stripe account
+        help:
+          A fee in cents that will be applied to the paymentintent and
+          transferred to the application owner’s Stripe account
       capturemethod:
         type: string
         in: requestBody
@@ -248,27 +267,35 @@ actions:
         type: string
         in: requestBody
         required: false
-        help: The Stripe account ID for which these funds are intended. Automatically set if you use the destination parameter
+        help:
+          The Stripe account ID for which these funds are intended.
+          Automatically set if you use the destination parameter
       receiptemail:
         type: string
         in: requestBody
         required: false
         help: The email address to which this charge’s receipt will be sent
-      returnurl: 
+      returnurl:
         type: string
         in: requestBody
         required: false
-        help: The URL to redirect your customer back to after they authenticate or cancel their payment on the payment method’s app or site
+        help:
+          The URL to redirect your customer back to after they authenticate or
+          cancel their payment on the payment method’s app or site
       savepaymentmethod:
         type: boolean
         in: requestBody
         required: false
-        help: Set to true to save this PaymentIntent’s payment method to the associated Customer, if the payment method is not already attached
+        help:
+          Set to true to save this PaymentIntent’s payment method to the
+          associated Customer, if the payment method is not already attached
       shipping:
         type: object
         in: requestBody
         required: false
-        help: Shipping information for the PaymentIntent. Helps prevent fraud on charges for physical goods.
+        help:
+          Shipping information for the PaymentIntent. Helps prevent fraud on
+          charges for physical goods.
       source:
         type: string
         in: requestBody
@@ -278,13 +305,15 @@ actions:
         type: string
         in: requestBody
         required: false
-        help: The parameters used to automatically create a Transfer when the payment succeeds
+        help:
+          The parameters used to automatically create a Transfer when the
+          payment succeeds
       transfergroup:
         type: string
         in: requestBody
         required: false
         help: A string that identifies this transaction as part of a group
-    output:   
+    output:
       type: object
       contentType: application/json
       properties:
@@ -295,31 +324,32 @@ actions:
           help: The object of charges with total count, url and data
           type: object
         client_secret:
-          help: The client payment secret key 
+          help: The client payment secret key
           type: string
         currency:
           help: The type of currency
           type: string
         last_payment_error:
           help: The error message from last payment
-          type : string
+          type: string
         payment_method_types:
           help: The payment method type
           type: object
   retrieve_payment_intent:
-    help: Retrieves the details of a PaymentIntent that has previously been created
+    help:
+      Retrieves the details of a PaymentIntent that has previously been created
     http:
       port: 3000
       method: get
       path: /retrievepaymentintent/{{paymentintentid}}
       contentType: application/json
     arguments:
-      paymentintentid: 
+      paymentintentid:
         type: string
         in: path
         required: true
         help: The payment intent code
-    output:   
+    output:
       type: object
       contentType: application/json
       properties:
@@ -330,14 +360,14 @@ actions:
           help: The object of charges with total count, url and data
           type: object
         client_secret:
-          help: The client payment secret key 
+          help: The client payment secret key
           type: string
         currency:
           help: The type of currency
           type: string
         last_payment_error:
           help: The error message from last payment
-          type : string
+          type: string
         payment_method_types:
           help: The payment method type
           type: object
@@ -349,7 +379,7 @@ actions:
       path: /updatepaymentintent/{{paymentintentid}}
       contentType: application/json
     arguments:
-      paymentintentid: 
+      paymentintentid:
         type: string
         in: path
         required: true
@@ -403,7 +433,9 @@ actions:
         type: string
         in: requestBody
         required: false
-        help: A string that identifies the resulting payment as part of a group. transfer_group may only be provided if it has not been set
+        help:
+          A string that identifies the resulting payment as part of a group.
+          transfer_group may only be provided if it has not been set
     output:
       type: object
       contentType: application/json
@@ -440,7 +472,7 @@ actions:
       path: /capturepaymentintent/{{paymentintentid}}
       contentType: application/json
     arguments:
-      paymentintentid: 
+      paymentintentid:
         type: string
         in: path
         required: true
@@ -466,7 +498,7 @@ actions:
       path: /cancelpaymentintent/{{paymentintentid}}
       contentType: application/json
     arguments:
-      paymentintentid: 
+      paymentintentid:
         type: string
         in: path
         required: true
@@ -475,13 +507,15 @@ actions:
         type: string
         in: requestBody
         required: false
-        help: Reason for canceling this PaymentIntent. If set, possible values are duplicate, fraudulent, requested_by_customer, or failed_invoice
+        help:
+          Reason for canceling this PaymentIntent. If set, possible values are
+          duplicate, fraudulent, requested_by_customer, or failed_invoice
     output:
       type: object
       contentType: application/json
       properties:
         amount:
-          help: 
+          help:
           type:
         canceled_at:
           help: The canceled payment intent
@@ -516,14 +550,14 @@ actions:
           help: The object of charges with total count, url and data
           type: object
         clientsecret:
-          help: The client payment secret key 
+          help: The client payment secret key
           type: string
         currency:
           help: The type of currency
           type: string
         lastpaymenterror:
           help: The error message from last payment
-          type : string
+          type: string
         paymentmethodtypes:
           help: The payment method type
           type: object
@@ -538,7 +572,7 @@ actions:
       path: /createsource/{{transfertype}}
       contentType: application/json
     arguments:
-      transfertype: 
+      transfertype:
         type: string
         in: path
         required: true
@@ -557,17 +591,24 @@ actions:
         type: int
         in: requestBody
         required: false
-        help: Amount associated with the source. This is the amount for which the source will be chargeable once ready
+        help:
+          Amount associated with the source. This is the amount for which the
+          source will be chargeable once ready
       flow:
         type: string
         in: requestBody
         required: false
-        help: The authentication flow of the source to create. flow is one of redirect, receiver, code_verification, none. It is generally inferred unless a type supports multiple flows
+        help:
+          The authentication flow of the source to create. flow is one of
+          redirect, receiver, code_verification, none. It is generally inferred
+          unless a type supports multiple flows
       mandate:
         type: object
         in: requestBody
         required: false
-        help: Information about a mandate possibility attached to a source object (generally for bank debits) as well as its acceptance status
+        help:
+          Information about a mandate possibility attached to a source object
+          (generally for bank debits) as well as its acceptance status
     output:
       type: object
       contentType: application/json
@@ -585,7 +626,7 @@ actions:
           help: The amount of source
           type: int
         client_secret:
-          help: The source ID 
+          help: The source ID
           type: string
         receiver:
           help: The object of receiver object
@@ -602,7 +643,7 @@ actions:
         type: string
         in: requestBody
         required: false
-        help: The description for customer 
+        help: The description for customer
       email:
         type: string
         in: requestBody
@@ -613,16 +654,13 @@ actions:
         in: requestBody
         required: false
         help: The customer account balance
-      description:
-        type: string
-        in: requestBody
-        required: false
-        help: The description in create customer
       invoiceprefix:
         type: string
         in: requestBody
         required: false
-        help: The prefix for the customer used to generate unique invoice numbers. Must be 3–12 uppercase letters or numbers
+        help:
+          The prefix for the customer used to generate unique invoice numbers.
+          Must be 3–12 uppercase letters or numbers
       invoicesettings:
         type: object
         in: requestBody
@@ -632,17 +670,24 @@ actions:
         type: object
         in: requestBody
         required: false
-        help: A set of key-value pairs that you can attach to a customer object. It can be useful for storing additional information about the customer in a structured format
+        help:
+          A set of key-value pairs that you can attach to a customer object. It
+          can be useful for storing additional information about the customer in
+          a structured format
       shipping:
         type: object
         in: requestBody
         required: false
-        help: The customer’s shipping information. Appears on invoices emailed to this customer
+        help:
+          The customer’s shipping information. Appears on invoices emailed to
+          this customer
       taxinfo:
         type: object
         in: requestBody
         required: false
-        help: The customer’s tax information. Appears on invoices emailed to this customer
+        help:
+          The customer’s tax information. Appears on invoices emailed to this
+          customer
     output:
       type: object
       contentType: application/json
@@ -660,7 +705,7 @@ actions:
           help: The type of currency
           type: string
         description:
-          help: The description for created customer 
+          help: The description for created customer
           type: string
         invoice_settings:
           help: The setting of invoice for customer
@@ -683,7 +728,9 @@ actions:
         type: object
         in: requestBody
         required: true
-        help: The object of card details, required fields are object(type of payment source. Should be card),number(card number), exp_month, exp_year
+        help:
+          The object of card details, required fields are object(type of payment
+          source. Should be card),number(card number), exp_month, exp_year
       customer:
         type: string
         in: requestBody
@@ -707,7 +754,7 @@ actions:
           help: The card ID
           type: string
         object:
-          help: The object type 
+          help: The object type
           type: string
         customer:
           help: The customer ID
@@ -727,7 +774,9 @@ actions:
         type: object
         in: requestBody
         required: false
-        help: The object of card details, required fields are object(type of payment source. Should be card),number(card number), exp_month, exp_year
+        help:
+          The object of card details, required fields are object(type of payment
+          source. Should be card),number(card number), exp_month, exp_year
       customer:
         type: string
         in: requestBody
@@ -757,7 +806,9 @@ actions:
         type: int
         in: requestBody
         required: false
-        help: positive integer in cents representing how much of this charge to refund
+        help:
+          positive integer in cents representing how much of this charge to
+          refund
       metadata:
         type: object
         in: requestBody
@@ -767,12 +818,16 @@ actions:
         type: boolean
         in: requestBody
         required: false
-        help: Boolean indicating whether the application fee should be refunded when refunding this charge
+        help:
+          Boolean indicating whether the application fee should be refunded when
+          refunding this charge
       reversetransfer:
         type: boolean
         in: requestBody
         required: false
-        help: Boolean indicating whether the transfer should be reversed when refunding this charge
+        help:
+          Boolean indicating whether the transfer should be reversed when
+          refunding this charge
     output:
       type: object
       contentType: application/json
@@ -780,15 +835,15 @@ actions:
         id:
           help: The refund ID
           type: string
-        object: 
+        object:
           help: The type of object
           type: string
         charge:
           help: The refunded charge ID
           type: string
         status:
-          help: The refund status 
-          type: string 
+          help: The refund status
+          type: string
 environment:
   SECRET_KEY:
     type: string
