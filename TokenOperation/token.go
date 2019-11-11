@@ -2,7 +2,7 @@ package TokenOperation
 
 import (
 	"encoding/json"
-	"github.com/heaptracetechnology/microservice-stripe/result"
+	"github.com/oms-services/stripe/result"
 	"github.com/stripe/stripe-go"
 	"github.com/stripe/stripe-go/token"
 	"net/http"

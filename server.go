@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/heaptracetechnology/microservice-stripe/route"
+	"github.com/oms-services/stripe/route"
 	"log"
 	"net/http"
 )

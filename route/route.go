@@ -2,14 +2,14 @@ package route
 
 import (
     "github.com/gorilla/mux"
-    "github.com/heaptracetechnology/microservice-stripe/BalanceOperation"
-    "github.com/heaptracetechnology/microservice-stripe/CardOperation"
-    "github.com/heaptracetechnology/microservice-stripe/ChargeOperation"
-    "github.com/heaptracetechnology/microservice-stripe/CustomerOperation"
-    "github.com/heaptracetechnology/microservice-stripe/PaymentIntentOperation"
-    "github.com/heaptracetechnology/microservice-stripe/RefundOperation"
-    "github.com/heaptracetechnology/microservice-stripe/SourceOperation"
-    "github.com/heaptracetechnology/microservice-stripe/TokenOperation"
+    "github.com/oms-services/stripe/BalanceOperation"
+    "github.com/oms-services/stripe/CardOperation"
+    "github.com/oms-services/stripe/ChargeOperation"
+    "github.com/oms-services/stripe/CustomerOperation"
+    "github.com/oms-services/stripe/PaymentIntentOperation"
+    "github.com/oms-services/stripe/RefundOperation"
+    "github.com/oms-services/stripe/SourceOperation"
+    "github.com/oms-services/stripe/TokenOperation"
     "log"
     "net/http"
 )

@@ -7,7 +7,7 @@ import (
 	"net/http/httptest"
 	"os"
 
-	"github.com/heaptracetechnology/microservice-stripe/result"
+	"github.com/oms-services/stripe/result"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 )

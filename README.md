@@ -2,8 +2,8 @@
 An OMG service for Stripe, it allows individuals and businesses to receive payments over the Internet. Stripe provides the technical, fraud prevention, and banking infrastructure required to operate on-line payment systems.
 
 [![Open Microservice Guide](https://img.shields.io/badge/OMG-enabled-brightgreen.svg?style=for-the-badge)](https://microservice.guide)
-[![Build Status](https://travis-ci.com/heaptracetechnology/microservice-stripe.svg?branch=master)](https://travis-ci.com/heaptracetechnology/microservice-stripe)
-[![codecov](https://codecov.io/gh/heaptracetechnology/microservice-stripe/branch/master/graph/badge.svg)](https://codecov.io/gh/heaptracetechnology/microservice-stripe)
+[![Build Status](https://travis-ci.com/oms-services/stripe.svg?branch=master)](https://travis-ci.com/oms-services/stripe)
+[![codecov](https://codecov.io/gh/oms-services/stripe/branch/master/graph/badge.svg)](https://codecov.io/gh/oms-services/stripe)
 
 ## [OMG](hhttps://microservice.guide) CLI
 

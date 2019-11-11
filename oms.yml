@@ -1,15 +1,11 @@
-omg: 1
+oms: 1
 lifecycle:
   startup:
-    command: ["microservice-stripe"]
+    command: ["stripe"]
 info:
   version: 1.0.0
   title: Stripe 
   description: This is a Stripe service
-  contact:
-    name: Rohit Shetty
-    url: https://github.com/ht68rohit
-    email: rohits@heaptrace.com
   license:
     name: MIT
     url: https://opensource.org/licenses/MIT 
@@ -798,5 +794,3 @@ environment:
     type: string
     required: true
     help: secret key for stripe
-    
-    
