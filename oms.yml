@@ -1,14 +1,19 @@
 oms: 1
-lifecycle:
-  startup:
-    command: ['stripe']
 info:
   version: 1.0.0
   title: Stripe
   description: This is a Stripe service
   license:
     name: MIT
-    url: https://opensource.org/licenses/MIT
+    url: 'https://opensource.org/licenses/MIT'
+  contact:
+    name: Open Microservices
+    url: 'https://openmicroservices.org'
+    email: core@openmicroservices.org
+lifecycle:
+  startup:
+    command:
+      - stripe
 actions:
   create_charge:
     help: Create a New Charge
@@ -37,7 +42,7 @@ actions:
         type: int
         in: requestBody
         required: false
-        help:
+        help: >-
           A fee in cents that will be applied to the charge and transferred to
           the application owner’s Stripe account
       capture:
@@ -49,8 +54,7 @@ actions:
         type: string
         in: requestBody
         required: false
-        help:
-          The ID of an existing customer that will be charged in this request.
+        help: The ID of an existing customer that will be charged in this request.
       metadata:
         type: object
         in: requestBody
@@ -60,7 +64,7 @@ actions:
         type: string
         in: requestBody
         required: false
-        help:
+        help: >-
           The Stripe account ID for which these funds are intended.
           Automatically set if you use the destination parameter
       receiptemail:
@@ -72,7 +76,7 @@ actions:
         type: object
         in: requestBody
         required: false
-        help:
+        help: >-
           Shipping information for the charge. Helps prevent fraud on charges
           for physical goods.
       source:
@@ -84,7 +88,7 @@ actions:
         type: string
         in: requestBody
         required: false
-        help:
+        help: >-
           An optional dictionary including the account to automatically transfer
           to as part of a destination charge (required destination feild)
       transfergroup:
@@ -103,7 +107,7 @@ actions:
           help: The refunded amount
           type: int
         balancetransaction:
-          help:
+          help: >-
             The object of balance transaction with details of amount, created,
             currency, description, id, recipient, source etc
           type: object
@@ -124,7 +128,7 @@ actions:
     http:
       port: 3000
       method: post
-      path: /capturecharge/{{charge}}
+      path: '/capturecharge/{{charge}}'
       contentType: application/json
     arguments:
       charge:
@@ -141,7 +145,7 @@ actions:
         type: int
         in: requestBody
         required: false
-        help:
+        help: >-
           A fee in cents that will be applied to the charge and transferred to
           the application owner’s Stripe account
       receiptemail:
@@ -153,7 +157,7 @@ actions:
         type: string
         in: requestBody
         required: false
-        help:
+        help: >-
           An optional dictionary including the account to automatically transfer
           to as part of a destination charge (required destination feild)
       transfergroup:
@@ -172,7 +176,7 @@ actions:
           help: The refunded amount
           type: int
         balance_transaction:
-          help:
+          help: >-
             The object of balance transaction with details of amount, created,
             currency, description, id, recipient, source etc
           type: object
@@ -240,14 +244,14 @@ actions:
         type: int
         in: requestBody
         required: false
-        help:
+        help: >-
           A fee in cents that will be applied to the paymentintent and
           transferred to the application owner’s Stripe account
       capturemethod:
         type: string
         in: requestBody
         required: false
-        help: Capture method of this PaymentIntent, one of automatic or manual
+        help: 'Capture method of this PaymentIntent, one of automatic or manual'
       confirm:
         type: boolean
         in: requestBody
@@ -267,7 +271,7 @@ actions:
         type: string
         in: requestBody
         required: false
-        help:
+        help: >-
           The Stripe account ID for which these funds are intended.
           Automatically set if you use the destination parameter
       receiptemail:
@@ -279,21 +283,21 @@ actions:
         type: string
         in: requestBody
         required: false
-        help:
+        help: >-
           The URL to redirect your customer back to after they authenticate or
           cancel their payment on the payment method’s app or site
       savepaymentmethod:
         type: boolean
         in: requestBody
         required: false
-        help:
+        help: >-
           Set to true to save this PaymentIntent’s payment method to the
           associated Customer, if the payment method is not already attached
       shipping:
         type: object
         in: requestBody
         required: false
-        help:
+        help: >-
           Shipping information for the PaymentIntent. Helps prevent fraud on
           charges for physical goods.
       source:
@@ -305,7 +309,7 @@ actions:
         type: string
         in: requestBody
         required: false
-        help:
+        help: >-
           The parameters used to automatically create a Transfer when the
           payment succeeds
       transfergroup:
@@ -321,7 +325,7 @@ actions:
           help: The amount of payment is created
           type: int
         charges:
-          help: The object of charges with total count, url and data
+          help: 'The object of charges with total count, url and data'
           type: object
         client_secret:
           help: The client payment secret key
@@ -336,12 +340,11 @@ actions:
           help: The payment method type
           type: object
   retrieve_payment_intent:
-    help:
-      Retrieves the details of a PaymentIntent that has previously been created
+    help: Retrieves the details of a PaymentIntent that has previously been created
     http:
       port: 3000
       method: get
-      path: /retrievepaymentintent/{{paymentintentid}}
+      path: '/retrievepaymentintent/{{paymentintentid}}'
       contentType: application/json
     arguments:
       paymentintentid:
@@ -357,7 +360,7 @@ actions:
           help: The amount of payment is created
           type: int
         charges:
-          help: The object of charges with total count, url and data
+          help: 'The object of charges with total count, url and data'
           type: object
         client_secret:
           help: The client payment secret key
@@ -376,7 +379,7 @@ actions:
     http:
       port: 3000
       method: put
-      path: /updatepaymentintent/{{paymentintentid}}
+      path: '/updatepaymentintent/{{paymentintentid}}'
       contentType: application/json
     arguments:
       paymentintentid:
@@ -433,7 +436,7 @@ actions:
         type: string
         in: requestBody
         required: false
-        help:
+        help: >-
           A string that identifies the resulting payment as part of a group.
           transfer_group may only be provided if it has not been set
     output:
@@ -469,7 +472,7 @@ actions:
     http:
       port: 3000
       method: post
-      path: /capturepaymentintent/{{paymentintentid}}
+      path: '/capturepaymentintent/{{paymentintentid}}'
       contentType: application/json
     arguments:
       paymentintentid:
@@ -495,7 +498,7 @@ actions:
     http:
       port: 3000
       method: post
-      path: /cancelpaymentintent/{{paymentintentid}}
+      path: '/cancelpaymentintent/{{paymentintentid}}'
       contentType: application/json
     arguments:
       paymentintentid:
@@ -507,7 +510,7 @@ actions:
         type: string
         in: requestBody
         required: false
-        help:
+        help: >-
           Reason for canceling this PaymentIntent. If set, possible values are
           duplicate, fraudulent, requested_by_customer, or failed_invoice
     output:
@@ -515,8 +518,8 @@ actions:
       contentType: application/json
       properties:
         amount:
-          help:
-          type:
+          help: null
+          type: null
         canceled_at:
           help: The canceled payment intent
           type: int
@@ -547,7 +550,7 @@ actions:
           help: The amount of payment is created
           type: int
         charges:
-          help: The object of charges with total count, url and data
+          help: 'The object of charges with total count, url and data'
           type: object
         clientsecret:
           help: The client payment secret key
@@ -569,7 +572,7 @@ actions:
     http:
       port: 3000
       method: post
-      path: /createsource/{{transfertype}}
+      path: '/createsource/{{transfertype}}'
       contentType: application/json
     arguments:
       transfertype:
@@ -591,14 +594,14 @@ actions:
         type: int
         in: requestBody
         required: false
-        help:
+        help: >-
           Amount associated with the source. This is the amount for which the
           source will be chargeable once ready
       flow:
         type: string
         in: requestBody
         required: false
-        help:
+        help: >-
           The authentication flow of the source to create. flow is one of
           redirect, receiver, code_verification, none. It is generally inferred
           unless a type supports multiple flows
@@ -606,7 +609,7 @@ actions:
         type: object
         in: requestBody
         required: false
-        help:
+        help: >-
           Information about a mandate possibility attached to a source object
           (generally for bank debits) as well as its acceptance status
     output:
@@ -658,7 +661,7 @@ actions:
         type: string
         in: requestBody
         required: false
-        help:
+        help: >-
           The prefix for the customer used to generate unique invoice numbers.
           Must be 3–12 uppercase letters or numbers
       invoicesettings:
@@ -670,7 +673,7 @@ actions:
         type: object
         in: requestBody
         required: false
-        help:
+        help: >-
           A set of key-value pairs that you can attach to a customer object. It
           can be useful for storing additional information about the customer in
           a structured format
@@ -678,14 +681,14 @@ actions:
         type: object
         in: requestBody
         required: false
-        help:
+        help: >-
           The customer’s shipping information. Appears on invoices emailed to
           this customer
       taxinfo:
         type: object
         in: requestBody
         required: false
-        help:
+        help: >-
           The customer’s tax information. Appears on invoices emailed to this
           customer
     output:
@@ -728,7 +731,7 @@ actions:
         type: object
         in: requestBody
         required: true
-        help:
+        help: >-
           The object of card details, required fields are object(type of payment
           source. Should be card),number(card number), exp_month, exp_year
       customer:
@@ -774,7 +777,7 @@ actions:
         type: object
         in: requestBody
         required: false
-        help:
+        help: >-
           The object of card details, required fields are object(type of payment
           source. Should be card),number(card number), exp_month, exp_year
       customer:
@@ -806,7 +809,7 @@ actions:
         type: int
         in: requestBody
         required: false
-        help:
+        help: >-
           positive integer in cents representing how much of this charge to
           refund
       metadata:
@@ -818,14 +821,14 @@ actions:
         type: boolean
         in: requestBody
         required: false
-        help:
+        help: >-
           Boolean indicating whether the application fee should be refunded when
           refunding this charge
       reversetransfer:
         type: boolean
         in: requestBody
         required: false
-        help:
+        help: >-
           Boolean indicating whether the transfer should be reversed when
           refunding this charge
     output:
